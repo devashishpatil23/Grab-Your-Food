@@ -1,5 +1,3 @@
-import React from "react";
-
 function SearchBar() {
   return (
     <div className="py-3 my-3">
@@ -18,7 +16,7 @@ function SearchBar() {
         </div>
         <button
           type="submit"
-          className="p-2.5 ml-2 text-sm font-medium text-white bg-orange-500 rounded-lg border hover:bg-orange-600"
+          className="px-2.5 py-2 ml-2 text-sm font-medium text-white flex items-center bg-orange-500 rounded-lg border hover:bg-orange-600"
         >
           <svg
             className="w-4 h-4"
@@ -36,6 +34,7 @@ function SearchBar() {
             />
           </svg>
           <span className="sr-only">Search</span>
+          <span className="ml-2 hidden  md:block">Search</span>
         </button>
       </form>
     </div>

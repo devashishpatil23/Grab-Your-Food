@@ -1,8 +1,8 @@
 import logo from "../assets/logo.png";
 function Header() {
   return (
-    <nav className="w-full p-3 border-b-2 border-gray-300">
-      <div className=" container mx-auto flex flex-col sm:flex-row justify-between items-center ">
+    <nav className=" p-3 border-b-2 border-gray-300">
+      <div className="lg:w-[1200px] mx-auto flex flex-col sm:flex-row justify-between items-center ">
         <div>
           <img className="w-32 lg:w-36" src={logo} alt="" />
         </div>
