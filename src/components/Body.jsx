@@ -1,15 +1,39 @@
 import RestaurantCard from "./RestaurantCard";
 import SearchBar from "./SearchBar";
 import data from "../utills/mockData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 function Body() {
-  const [restData, setRestData] = useState(data);
+  const [restData, setRestData] = useState([]);
   function filterTopRatedRest() {
     const filteredData = restData
       .filter((res) => res.info.avgRating > 4)
       .sort((a, b) => b.info.avgRating - a.info.avgRating);
     setRestData(filteredData);
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/mapi/homepage/getCards?lat=20.918084723615898&lng=74.76579799034471"
+    );
+    const jsonData = await data.json();
+    console.log(
+      jsonData?.data?.success?.cards[2]?.gridWidget?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
+    setRestData(
+      jsonData.data.success.cards[2].gridWidget.gridElements.infoWithStyle
+        .restaurants
+    );
+  };
+
+  if (restData.length === 0) {
+    return <Shimmer />;
   }
 
   return (

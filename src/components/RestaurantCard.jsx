@@ -5,6 +5,7 @@ function RestaurantCard({ resObj }) {
     name,
     cuisines,
     avgRating,
+    costForTwo,
     sla: { slaString },
   } = resObj;
 
@@ -32,7 +33,7 @@ function RestaurantCard({ resObj }) {
             <span className=" text-gray-500 text-sm pr-2">{slaString}</span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-lg  text-gray-900 dark:text-white">$599</span>
+            <span className="text-lg  text-gray-900 dark:text-white">{costForTwo}</span>
             <a
               href="#"
               className="text-white bg-gray-400 hover:bg-gray-500 rounded-lg  text-sm px-2 py-1.5 text-center"
