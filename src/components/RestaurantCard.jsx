@@ -1,5 +1,6 @@
 import CDN_URL from "../utills/constants";
 function RestaurantCard({ resObj }) {
+  
   const {
     cloudinaryImageId,
     name,

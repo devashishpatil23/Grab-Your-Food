@@ -17,7 +17,7 @@ function Body() {
   }
 
   function searchedRest(e) {
-    e.preventDefault(); // Prevent the form from submitting and refreshing the page
+    e.preventDefault(); 
     const searchedRestList = restData.filter(
       (res) =>
         res.info.name.toLowerCase().includes(searchedItem.toLowerCase()) ||
@@ -51,7 +51,7 @@ function Body() {
     <Shimmer cards={restData} />
   ) : (
     <div className="container mx-auto">
-      <div className="flex flex-col">
+      <div className="flex flex-col md:flex-row items-center justify-around">
         <div className="py-3 my-3">
           <form
             className="flex items-center max-w-64 lg:max-w-sm mx-auto"
@@ -95,7 +95,7 @@ function Body() {
           </form>
         </div>
         <button
-          className="text-white bg-gray-400 hover:bg-gray-500 rounded-lg text-sm px-2 py-1.5 text-center mx-auto m-5"
+          className="text-white bg-gray-400 hover:bg-gray-500 rounded-lg text-sm px-2 py-1.5 text-center mb-3 "
           onClick={filterTopRatedRest}
         >
           Top rated restaurants

@@ -1,16 +1,18 @@
-import "./App.css";
+import React from "react";
 import Header from "./components/Header";
-import Body from "./components/Body";
 import Footer from "./components/Footer";
+import { Outlet } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
     <>
       <Header />
-      <Body />
+      <main>
+        <Outlet /> {/* Renders the matched route component */}
+      </main>
       <Footer />
     </>
   );
-}
+};
 
 export default App;
