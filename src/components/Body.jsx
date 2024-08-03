@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import apiData from "../utills/apiData.json";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 function Body() {
   const [restData, setRestData] = useState([]);
@@ -17,7 +18,7 @@ function Body() {
   }
 
   function searchedRest(e) {
-    e.preventDefault(); 
+    e.preventDefault();
     const searchedRestList = restData.filter(
       (res) =>
         res.info.name.toLowerCase().includes(searchedItem.toLowerCase()) ||
@@ -104,7 +105,10 @@ function Body() {
       <div className="mx-auto flex flex-wrap justify-center gap-5">
         {fiteredData.map((item) =>
           item ? (
-            <RestaurantCard key={item?.info.id} resObj={item?.info} />
+            <Link key={item?.info.id} to={`/restaurants/${item?.info.id}`}>
+              {" "}
+              <RestaurantCard resObj={item?.info} />
+            </Link>
           ) : null
         )}
       </div>
